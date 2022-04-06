@@ -31,7 +31,7 @@ const kittenData_2 = {
 const kittenData_3 = {
     image: "https://images.emedicinehealth.com/images/article/main_image/cat-scratch-disease.jpg",
     name: "Cielo",
-    desc: "Ruiseño, juguetón, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!",
+    desc: "Risueño, juguetón, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!",
     race: "British Shorthair",
 };
 
@@ -142,11 +142,14 @@ function filterKitten(event) {
     event.preventDefault();
     const descrSearchText = input_search_desc.value;
     listElement.innerHTML = "";
-    for (const kittenItem of kittenDataList) {
+    /* for (const kittenItem of kittenDataList) {
         if (kittenItem.desc.includes(descrSearchText)) {
             listElement.innerHTML += renderKitten(kittenItem);
         }
-    }
+    } */
+    const filterDesc = kittenDataList
+    .filter((kittenItem) => kittenItem.desc.includes(descrSearchText))
+    .map((kittenItem) => listElement.innerHTML += renderKitten(kittenItem));  
 }
 
 //Mostrar el litado de gatitos en ell HTML
